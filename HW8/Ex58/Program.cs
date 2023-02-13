@@ -1,4 +1,5 @@
-﻿// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+﻿// Задача 58: Задайте две матрицы. Напишите программу, 
+// которая будет находить произведение двух матриц.
 // Например, даны 2 матрицы:
 // 2 4 | 3 4
 // 3 2 | 3 3
@@ -6,7 +7,10 @@
 // 18 20
 // 15 18
 
-int [,] GetFirstArray (int rowLength, int colLength)
+int [,] randomArray1 = GetRandomArray (2, 2);
+int [,] randomArray2 = GetRandomArray (2, 2);
+
+int [,] GetRandomArray (int rowLength, int colLength)
 {
     
     int [,] array = new int [rowLength, colLength];
@@ -19,26 +23,9 @@ int [,] GetFirstArray (int rowLength, int colLength)
     }
     return array;
 }
-int [,] firstArray = GetFirstArray (2, 2);
-
-int [,] GetSecondArray (int rowLength, int colLength)
-{
-    
-    int [,] array = new int [rowLength, colLength];
-    for (int i = 0; i < rowLength; i++)
-    {
-        for (int j = 0; j < colLength; j++)
-        {
-            array[i, j] = new Random().Next(0, 10);
-        }
-    }
-    return array;
-}
-int [,] secondArray = GetSecondArray (2, 2);
-
 
 int[,] resultArray = new int[2, 2]; 
-void MultiplyArrays(int[,] firstArray, int[,] secondArray)
+void MultiplyArrays(int[,] randomArray1, int[,] randomArray2)
 {
 
   for (int i = 0; i < resultArray.GetLength(0); i++)
@@ -46,15 +33,15 @@ void MultiplyArrays(int[,] firstArray, int[,] secondArray)
     for (int j = 0; j < resultArray.GetLength(1); j++)
     {
       int sum = 0;
-      for (int k = 0; k < firstArray.GetLength(1); k++)
+      for (int k = 0; k < randomArray1.GetLength(1); k++)
       {
-        sum = sum + firstArray[i,k] * secondArray[k,j];
+        sum = sum + randomArray1[i,k] * randomArray2[k,j];
       }
       resultArray[i,j] = sum;
     }
   }
 }
-MultiplyArrays(firstArray, secondArray);
+MultiplyArrays(randomArray1, randomArray2);
 
 void Printarray (int [,] firstArray)
 {
@@ -67,9 +54,9 @@ void Printarray (int [,] firstArray)
         Console.WriteLine();
     }
 } 
-Printarray(firstArray);
+Printarray(randomArray1);
 Console.WriteLine();
-Printarray(secondArray);
+Printarray(randomArray2);
 Console.WriteLine();
 Printarray(resultArray);
   
