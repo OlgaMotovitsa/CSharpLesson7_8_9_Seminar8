@@ -10,6 +10,7 @@
 int [,] randomArray1 = GetRandomArray (2, 2);
 int [,] randomArray2 = GetRandomArray (2, 2);
 
+
 int [,] GetRandomArray (int rowLength, int colLength)
 {
     
@@ -24,7 +25,11 @@ int [,] GetRandomArray (int rowLength, int colLength)
     return array;
 }
 
+
 int[,] resultArray = new int[2, 2]; 
+
+MultiplyArrays(randomArray1, randomArray2);
+
 void MultiplyArrays(int[,] randomArray1, int[,] randomArray2)
 {
 
@@ -41,10 +46,11 @@ void MultiplyArrays(int[,] randomArray1, int[,] randomArray2)
     }
   }
 }
-MultiplyArrays(randomArray1, randomArray2);
+
 
 void Printarray (int [,] firstArray)
 {
+    
     for (int i = 0; i < firstArray.GetLength(0); i++)
     {
         for (int j = 0; j < firstArray.GetLength(1); j++)
